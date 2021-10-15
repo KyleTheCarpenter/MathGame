@@ -10,6 +10,16 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
+func tutorialPressed():
+	var newGame = preload("res://scenes/Tutorial.tscn").instance()
+	get_parent().add_child(newGame)
+	#get_parent().remove_child(self)
+	visible = false
+func creditPressed():
+	var newGame = preload("res://scenes/credits.tscn").instance()
+	get_parent().add_child(newGame)
+	#get_parent().remove_child(self)
+	visible = false
 func playPressed():
 	var newGame = preload("res://scenes/loader.tscn").instance()
 	get_parent().add_child(newGame)

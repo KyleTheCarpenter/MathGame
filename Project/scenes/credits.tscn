@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://button.png" type="Texture" id=1]
+[ext_resource path="res://gamebg.png" type="Texture" id=2]
+[ext_resource path="res://buttondown.png" type="Texture" id=3]
+[ext_resource path="res://MangabeyRegular-rgqVO.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://bin/credits.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+normal_map = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 4 )
+
+[node name="credits" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="LOADINGBG" type="Sprite" parent="."]
+position = Vector2( 269.173, 479.615 )
+scale = Vector2( 0.750393, 0.752396 )
+texture = ExtResource( 2 )
+
+[node name="data" type="Label" parent="."]
+margin_left = 145.902
+margin_top = 47.8429
+margin_right = 451.902
+margin_bottom = 137.843
+rect_pivot_offset = Vector2( -1061.04, 312.598 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data2" type="Label" parent="."]
+margin_left = 29.881
+margin_top = 174.0
+margin_right = 508.881
+margin_bottom = 791.0
+rect_pivot_offset = Vector2( -1061.04, 312.598 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Math-Game was designed and created
+by KyleTc.com using Godot.
+If any concerns or bugs occur please
+email kyle@kyletc.com.
+
+This product is completley free with 
+means of education.
+
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="."]
+margin_left = 30.8811
+margin_top = 829.357
+margin_right = 244.881
+margin_bottom = 919.357
+rect_pivot_offset = Vector2( 176, 80 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="exit" to="." method="backButPressed"]

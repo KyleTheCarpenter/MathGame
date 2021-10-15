@@ -35,24 +35,14 @@ position = Vector2( 272, 480 )
 scale = Vector2( 0.755556, 0.75 )
 texture = ExtResource( 1 )
 
-[node name="lbl" type="Label" parent="."]
-margin_left = 408.0
-margin_top = 32.0
-margin_right = 523.0
-margin_bottom = 72.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Correct"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="scroll" type="Node2D" parent="."]
+position = Vector2( 21.0219, 53.6638 )
 
 [node name="data" type="Label" parent="."]
-margin_left = 336.0
-margin_top = 32.0
-margin_right = 451.0
-margin_bottom = 72.0
+margin_left = 182.238
+margin_top = 872.0
+margin_right = 495.238
+margin_bottom = 912.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
@@ -61,10 +51,10 @@ __meta__ = {
 }
 
 [node name="Button13" type="Button" parent="."]
-margin_left = 368.0
-margin_top = 848.0
-margin_right = 512.0
-margin_bottom = 920.0
+margin_left = 21.9465
+margin_top = 857.524
+margin_right = 165.947
+margin_bottom = 929.524
 rect_pivot_offset = Vector2( -232, 80 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -79,4 +69,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 491.0
+margin_top = 29.0
+margin_right = 521.0
+margin_bottom = 828.0
+color = Color( 0.701961, 0.690196, 0.690196, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroller" type="Node2D" parent="."]
+position = Vector2( 495, 32.5676 )
+
+[node name="Button" type="Button" parent="scroller"]
+margin_right = 21.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Button13" to="." method="retryPressed"]
+[connection signal="button_down" from="scroller/Button" to="." method="scrollClicked"]
+[connection signal="button_up" from="scroller/Button" to="." method="ScrollButtonReleased"]

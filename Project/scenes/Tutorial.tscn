@@ -1,0 +1,717 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://gamebg.png" type="Texture" id=1]
+[ext_resource path="res://button.png" type="Texture" id=2]
+[ext_resource path="res://MangabeyRegular-rgqVO.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://resources/13.10.2021_09.52.10_REC.png" type="Texture" id=4]
+[ext_resource path="res://resources/13.10.2021_09.54.36_REC.png" type="Texture" id=5]
+[ext_resource path="res://resources/13.10.2021_09.56.02_REC.png" type="Texture" id=6]
+[ext_resource path="res://resources/13.10.2021_09.57.54_REC.png" type="Texture" id=7]
+[ext_resource path="res://resources/13.10.2021_09.59.13_REC.png" type="Texture" id=8]
+[ext_resource path="res://buttondown.png" type="Texture" id=9]
+[ext_resource path="res://scenes/Tutorial.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 57
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 77
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="DynamicFont" id=10]
+size = 100
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 9 )
+normal_map = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "Start"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Line2D/next:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Line2D/next:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 74 ), Vector2( 128, 80 ), Vector2( 128, 74 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("choice:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("start:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("diff2:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Welcome to Math-Game!
+Practice your skills with + - X 
+Also Simple Algebra included" ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Line2D/next:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "one"
+length = 26.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("start:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("choice:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("choice/ColorRect6:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.8, 7.8, 12.9, 17.8, 22.8, 25.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -65.9021, 1090.62 ), Vector2( -65.9021, 303.796 ), Vector2( -65.9021, 452.654 ), Vector2( -65.9021, 580.246 ), Vector2( -65.9021, 707.839 ), Vector2( -65.9021, 846.064 ), Vector2( -65.9021, 846.064 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Line2D/next:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("diff2:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.8, 7.8, 12.9, 17.8, 22.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "pay attention r	ight here
+
+", "Choose the Maximum digit for the 
+Questions", "Choose between
+
+ Normal 12 +12 or
+ Algebra A + 6 = 12
+", "Exclude Opperators
+have choice of just + or just -
+or pick all 3", "Choose a Timed Game or pick
+a certain ammount of questions", "Choose a time  or ammount 
+of questions
+
+" ]
+}
+
+[node name="LOADINGBG" type="Sprite"]
+position = Vector2( 520, 632 )
+scale = Vector2( 0.750393, 0.752396 )
+texture = ExtResource( 1 )
+offset = Vector2( -334.261, -202.533 )
+script = ExtResource( 10 )
+
+[node name="start" type="Node2D" parent="."]
+visible = false
+
+[node name="diff" type="Label" parent="start"]
+margin_left = -533.054
+margin_top = -776.187
+margin_right = -145.054
+margin_bottom = -686.187
+rect_pivot_offset = Vector2( 260.467, 127.592 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tutorial"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="diff3" type="Label" parent="start"]
+margin_left = -554.376
+margin_top = -489.104
+margin_right = -166.376
+margin_bottom = -399.104
+rect_pivot_offset = Vector2( 260.467, 127.592 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "12 + 22 = ?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="diff4" type="Label" parent="start"]
+margin_left = -554.376
+margin_top = -350.879
+margin_right = -166.376
+margin_bottom = -260.879
+rect_pivot_offset = Vector2( 260.467, 127.592 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A x 3 = 15"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="diff5" type="Label" parent="start"]
+margin_left = -586.359
+margin_top = 350.879
+margin_right = 31.6408
+margin_bottom = 512.879
+rect_pivot_offset = Vector2( 415.782, -776.187 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Right arrow to continue..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="choice" type="Node2D" parent="."]
+position = Vector2( -605.746, -952.391 )
+
+[node name="ColorRect" type="ColorRect" parent="choice"]
+margin_left = 95.0
+margin_top = 343.0
+margin_right = 586.0
+margin_bottom = 439.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="choice"]
+margin_left = 95.0
+margin_top = 479.0
+margin_right = 586.0
+margin_bottom = 575.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="choice"]
+margin_left = 95.0
+margin_top = 610.0
+margin_right = 586.0
+margin_bottom = 706.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="choice"]
+margin_left = 95.0
+margin_top = 743.0
+margin_right = 586.0
+margin_bottom = 839.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="choice"]
+margin_left = 95.0
+margin_top = 876.0
+margin_right = 586.0
+margin_bottom = 972.0
+color = Color( 0.862745, 0.862745, 0.862745, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data" type="Label" parent="choice"]
+margin_left = 148.421
+margin_top = 193.994
+margin_right = 454.421
+margin_bottom = 283.994
+rect_pivot_offset = Vector2( -1061.04, 312.598 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data2" type="Label" parent="choice"]
+margin_left = 180.405
+margin_top = 491.709
+margin_right = 486.405
+margin_bottom = 581.709
+rect_pivot_offset = Vector2( 306, 137.379 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Normal"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="diff" type="Label" parent="choice"]
+margin_left = 169.744
+margin_top = 364.117
+margin_right = 475.744
+margin_bottom = 454.117
+rect_pivot_offset = Vector2( 153, 148.281 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oppe" type="Label" parent="choice"]
+margin_left = 180.405
+margin_top = 619.302
+margin_right = 486.405
+margin_bottom = 709.302
+rect_pivot_offset = Vector2( 320.033, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "+-x"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s2" type="Button" parent="choice"]
+margin_left = 489.576
+margin_top = 629.935
+margin_right = 595.576
+margin_bottom = 719.935
+rect_pivot_offset = Vector2( -1551.19, 0 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s3" type="Button" parent="choice"]
+margin_left = 489.576
+margin_top = 353.484
+margin_right = 595.576
+margin_bottom = 443.484
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s4" type="Button" parent="choice"]
+margin_left = -2401.78
+margin_top = 560.581
+margin_right = -2295.78
+margin_bottom = 650.581
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 1289.53, 65.3665 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s8" type="Button" parent="choice"]
+margin_left = 489.576
+margin_top = 491.709
+margin_right = 595.576
+margin_bottom = 581.709
+rect_pivot_offset = Vector2( -1551.19, 0 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s9" type="Button" parent="choice"]
+margin_left = -2401.94
+margin_top = 436.357
+margin_right = -2295.94
+margin_bottom = 526.357
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 1289.53, 65.3665 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s10" type="Button" parent="choice"]
+margin_left = 489.576
+margin_top = 746.894
+margin_right = 595.576
+margin_bottom = 836.894
+rect_pivot_offset = Vector2( -1551.19, 0 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s11" type="Button" parent="choice"]
+margin_left = -2402.24
+margin_top = 693.731
+margin_right = -2296.24
+margin_bottom = 783.731
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 1289.53, 65.3665 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data3" type="Label" parent="choice"]
+margin_left = 191.066
+margin_top = 757.527
+margin_right = 497.066
+margin_bottom = 847.527
+rect_pivot_offset = Vector2( 306, 137.379 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time" type="Label" parent="choice"]
+margin_left = 173.742
+margin_top = 895.752
+margin_right = 479.742
+margin_bottom = 985.752
+rect_pivot_offset = Vector2( 320.033, 0 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "30"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s6" type="Button" parent="choice"]
+margin_left = 489.576
+margin_top = 885.119
+margin_right = 595.576
+margin_bottom = 975.119
+rect_pivot_offset = Vector2( 74.3976, 16.4075 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s7" type="Button" parent="choice"]
+margin_left = 693.469
+margin_top = 841.259
+margin_right = 799.469
+margin_bottom = 931.259
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( -258.094, 59.2651 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="s5" type="Button" parent="choice"]
+margin_left = 177.739
+margin_top = 427.913
+margin_right = 283.739
+margin_bottom = 517.913
+rect_rotation = 180.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="13102021_095210_REC" type="Sprite" parent="choice"]
+position = Vector2( 13.8253, 385.382 )
+scale = Vector2( 0.45732, 0.45732 )
+texture = ExtResource( 4 )
+
+[node name="13102021_095436_REC" type="Sprite" parent="choice"]
+position = Vector2( 15.1581, 532.911 )
+scale = Vector2( 0.456704, 0.507014 )
+texture = ExtResource( 5 )
+
+[node name="13102021_095602_REC" type="Sprite" parent="choice"]
+position = Vector2( 16.9272, 661.833 )
+scale = Vector2( 0.478219, 0.566872 )
+texture = ExtResource( 6 )
+
+[node name="13102021_095754_REC" type="Sprite" parent="choice"]
+position = Vector2( 15.082, 789.425 )
+scale = Vector2( 0.486595, 0.570885 )
+texture = ExtResource( 7 )
+
+[node name="13102021_095913_REC" type="Sprite" parent="choice"]
+position = Vector2( 17.3023, 927.65 )
+scale = Vector2( 0.480332, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="ColorRect6" type="ColorRect" parent="choice"]
+margin_left = -65.9021
+margin_top = 603.143
+margin_right = 595.098
+margin_bottom = 758.193
+color = Color( 0.12549, 0.313726, 0.764706, 0.341176 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -671.648, 138.225, 0.000183105, 138.225 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="exit" type="Button" parent="Line2D"]
+margin_left = -668.0
+margin_top = -812.0
+margin_right = -469.0
+margin_bottom = -670.0
+rect_pivot_offset = Vector2( 586.373, 531.55 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="next" type="Button" parent="Line2D"]
+visible = false
+margin_left = -138.594
+margin_top = 318.981
+margin_right = -10.594
+margin_bottom = 392.981
+rect_pivot_offset = Vector2( 586.373, 531.55 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "-->"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anime" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 15 )
+anims/one = SubResource( 16 )
+
+[node name="diff2" type="Label" parent="."]
+margin_left = -650.326
+margin_top = 159.49
+margin_right = -32.3259
+margin_bottom = 404.49
+rect_pivot_offset = Vector2( 415.782, -776.187 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Exclude Opperators
+have choice of just + or just -
+or pick all 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="diff3" type="Label" parent="."]
+visible = false
+margin_left = -650.326
+margin_top = 159.49
+margin_right = -32.3258
+margin_bottom = 404.49
+rect_pivot_offset = Vector2( 415.782, -776.187 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Choose a time  or ammount 
+of questions
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Line2D/exit" to="." method="backButPressed"]
+[connection signal="pressed" from="Line2D/next" to="." method="nextPressed"]

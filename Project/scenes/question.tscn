@@ -9,12 +9,21 @@ font_data = ExtResource( 1 )
 [node name="question" type="Node2D"]
 
 [node name="data" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 40.0
-margin_right = 520.0
-margin_bottom = 80.0
+margin_left = 1.97739
+margin_top = 3.95934
+margin_right = 497.977
+margin_bottom = 43.9593
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red" type="ColorRect" parent="."]
+visible = false
+margin_right = 489.0
+margin_bottom = 33.0
+color = Color( 1, 0, 0, 0.101961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

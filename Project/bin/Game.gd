@@ -13,49 +13,100 @@ var timed = true
 var questions = []
 var answers = []
 var scores = []
+var correct = []
 var diff = 10
+var pause = false
 var opperator = 1
+var gameMode = "Opperator" #Opperator,Fraction,Algebra
+var timeMode = "Time" #Time,Ammount
+var alg1 
+var alg2 
+var algopp = ""
+var algans
+var bedmas = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("Clock").start()
-	get_node("num1").text = setNumbers()
-	get_node("num2").text = setNumbers()
-	get_node("operator").text = setOperator()
+	reset()
 
 func reset():
-	get_node("num1").text = setNumbers()
-	get_node("num2").text = setNumbers()
-	get_node("operator").text = setOperator()
-	get_node("timemax").text = str(timeMax)
+	match gameMode:
+		"Opperator":
+			get_node("num1").text = setNumbers()
+			get_node("num2").text = setNumbers()
+			
+			if int(get_node("num1").text) < int(get_node("num2").text):
+				var temp = get_node("num1").text
+				get_node("num1").text = get_node("num2").text
+				get_node("num2").text = temp
+				print("switched")
+
+			
+			get_node("operator").text = setOperator()
+			
+			get_node("timemax").text = str(timeMax)
+
+		"Algebra":
+			get_node("timemax").text = str(timeMax)
+			print("algebra")
+			algopp = ""
+			get_node("num1").visible = false
+			get_node("num2").visible = false
+			get_node("operator").visible = false
+			get_node("num3").visible = true
+			get_node("algebra").visible = true
+
+			alg1 = setNumbers()
+			alg2 = setNumbers()
+			algopp = setOperator()
+			
+			match algopp:
+				"+": algans = int(alg1) + int(alg2)
+				"-": algans = int(alg1) - int(alg2)
+				"x": algans = int(alg1) * int(alg2)
+
+			get_node("num3").text = "A "+ algopp + " "+ str(alg2) + " = "+str(algans)
+			
+
 func insertNumber0():
-	get_node("data").text+="0"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="0"
 
 func insertNumber1():
-	get_node("data").text+="1"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="1"
 
 func insertNumber2():
-	get_node("data").text+="2"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="2"
 
 func insertNumber3():
-	get_node("data").text+="3"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="3"
 
 func insertNumber4():
-	get_node("data").text+="4"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="4"
 
 func insertNumber5():
-	get_node("data").text+="5"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="5"
 	
 func insertNumber6():
-	get_node("data").text+="6"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="6"
 
 func insertNumber7():
-	get_node("data").text+="7"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="7"
 
 func insertNumber8():
-	get_node("data").text+="8"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="8"
 
 func insertNumber9():
-	get_node("data").text+="9"
+	if get_node("data").text.length() < 9:
+		get_node("data").text+="9"
 
 func eraseNumber():
 	
@@ -79,11 +130,22 @@ func insertNegative():
 		temp.erase(0,1)
 		get_node("data").text =temp
 		pos = true
+var near = false
 func clockout():
-	time+=1
-	if time >= timeMax+1:
-		endGame()
-	get_node("time2").text = str(time)
+	if timeMode == "Ammount":
+		get_node("Clock").stop()
+	if timeMode == "Time":
+		time+=1
+		if time >= timeMax-10:    
+			if near == false:
+				get_node("anime2").play("blink")
+				get_node("time2").add_color_override("font_color", Color(255,0,0))
+				near = true
+		if time >= timeMax+1:
+			endGame()
+		get_node("time2").text = str(time)
+
+		
 
 func clearNumber():
 	get_node("data").text= ""
@@ -103,7 +165,13 @@ func setOperator():
 		2: return "+"
 		3: return "-"
 		4: return "x"
+		5: 
+			var rand_int = rand_generate.randi_range(1,2)
+			match rand_int:
+				1:return "+"
+				2:return "-"
 				
+		6:	bedmas = true	
 
 		
 		
@@ -112,44 +180,93 @@ func setNumbers():
 	var rand_generate = RandomNumberGenerator.new()
 	rand_generate.randomize()
 	var rand_int = rand_generate.randi_range(1,diff)
+	
 	return str(rand_int)
 
 
-func submitAnswer():
-	var answer
-	var num1 = int(get_node("num1").text)
-	var num2 = int(get_node("num2").text)
-	match get_node("operator").text:
-		"+":
-			answer = num1+num2
-		"-":
-			answer = num1-num2
-		"x":
-			answer = num1*num2
-		"/":
-			answer = num1/num2
-	var sendtoArray = str(num1)+" "+get_node("operator").text+" "+str(num2) + " = " +get_node("data").text
-	
-	if (answer == int(get_node("data").text)):
-		score+=1
-		sendtoArray+=" | Correct"
-	else:
-		sendtoArray+= " | Wrong | "+str(answer)+" is correct"
 
-	questions.append(sendtoArray)
-	get_node("Timer").start()
-	level+=1
-	get_node("level").text = str(level)
-	get_node("time").text = str(score)
-	get_node("anime").play("load")
+func submitAnswer():
+
+	if not pause && get_node("data").text != "":
+		if gameMode == "Opperator":
+			var answer
+			var num1 = int(get_node("num1").text)
+			var num2 = int(get_node("num2").text)
+			
+			match get_node("operator").text:
+				"+":
+					answer = num1+num2
+				"-":
+					answer = num1-num2
+				"x":
+					answer = num1*num2
+				"/":
+					answer = num1/num2
+			var sendtoArray = str(num1)+" "+get_node("operator").text+" "+str(num2) + " = " +get_node("data").text
+			
+			if (answer == int(get_node("data").text)):
+				score+=1
+				sendtoArray+=" | Correct"
+				correct.append("y")
+			else:
+				sendtoArray+= " | Wrong | "+str(answer)+" is correct"
+				correct.append("n")
+			questions.append(sendtoArray)
+
+			#RESET
+			reset()
+			pos = true
+			get_node("data").text = ""
+
+
+			get_node("Timer").start()
+			level+=1
+			get_node("level").text = str(level)
+			get_node("time").text = str(score)
+			get_node("anime").play("load")
+			pause = true
+
+			if timeMode == "Ammount":
+				time+=1
+				get_node("time2").text = str(time)
+				if time >= timeMax:
+					endGame()
+
+		if gameMode == "Algebra":
+			var sendtoArray = "A("+get_node("data").text+") "+algopp+" "+alg2 + " = " +str(algans)
+			
+			if (alg1 == get_node("data").text):
+				score+=1
+				sendtoArray+=" | Correct"
+				correct.append("y")
+			else:
+				sendtoArray+= " | Wrong | A is " + alg1
+				correct.append("n")
+			questions.append(sendtoArray)
+
+			#RESET
+			reset()
+			pos = true
+			get_node("data").text = ""
+
+
+			get_node("Timer").start()
+			level+=1
+			get_node("level").text = str(level)
+			get_node("time").text = str(score)
+			get_node("anime").play("load")
+			pause = true
+
+			if timeMode == "Ammount":
+				time+=1
+				get_node("time2").text = str(time)
+				if time >= timeMax:
+					endGame()
+
 
 func timeout():
-	get_node("data").text = ""
 	get_node("Timer").stop() 
-	pos = true
-	get_node("num1").text = setNumbers()
-	get_node("num2").text = setNumbers()
-	get_node("operator").text = setOperator()
+	pause = false
 
 
 func endGame():
@@ -157,8 +274,17 @@ func endGame():
 	get_parent().add_child(fin)
 	for items in questions:
 		fin.addQuestion(items)
-	fin.get_node("data").text = str(score)
+	fin.get_node("data").text = str(score)+" Correct out of "+ str(questions.size())
+
+	var i = 0
+	for items in correct: #fin.items:
+		if items == "n":
+			fin.items[i].get_node("red").visible = true
+		i+=1
+
 	get_parent().remove_child(self)
+
+	
 
 	
 	#get_parent().remove_child(self)
